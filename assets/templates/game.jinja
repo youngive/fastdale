@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>FastDale</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/game.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered">
+            <object id="base" name="base" menu="true" allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" data="base.swf?v=1337" style="width: 100%"><param name="flashvars" value="game_server=http://{{ webhost }}{{ webport }}/&url_path_server=http://{{ webhost }}{{ webport }}/&portal_url=http://{{ webhost }}{{ webport }}/&manual_server_selection=&start_step=0&useHashInName="></object>
+        </div>
+    </div>
+    <p><a href="/cabinet">Кабинет</a></p>
+    <p><a href="/logout">Выйти</a></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function resize_embed() {
+            $("#base").height(($(window).height() / $(window).width()) * $("#base").width());
+        }
+        $(document).ready(resize_embed);
+        $(window).resize(resize_embed);
+    </script>
+</body>
+
+</html>

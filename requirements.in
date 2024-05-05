@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+alembic
+jinja2
+passlib
+itsdangerous
+requests
+python-multipart

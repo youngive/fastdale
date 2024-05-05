@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+	<title>Вход - FastDale</title>
+ 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div class="loginbox">
+		<img class="logo" src="/logo.png">
+        <form action='' method='POST' enctype='multipart/form-data'>
+            <p class="message">{{ error }}</p>
+            <h1>Вход</h1>
+            <input name='USERNAME' minlength="3" maxlength="16" placeholder='Логин' /><br/>
+            <input name='PASSWORD' type='password' minlength="6" maxlength="32" placeholder='Пароль'  /><br/>
+            <br/>
+            <button class='meow-btn' type='submit' style="display: inline-block;" name='btnLogin'>Войти</button>&nbsp;<a class='meow-btn' style='background:#ff8787; display: inline-block;' href='/register' name='btnReg'>Создать аккаунт</a>
+        </form>
+	</div>
+</body>
+</html>

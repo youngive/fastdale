@@ -1,0 +1,23 @@
+[
+    {"Id": "1", "Parameter": "AccessRoleFlags", "Value": "0", "Type": "number"},
+    {"Id": "3", "Parameter": "IsPreloaderFast", "Value": "0", "Type": "bool"},
+    {"Id": "4", "Parameter": "InitialVolumeValue", "Value": "0", "Type": "number"},
+    {"Id": "6", "Parameter": "IsPreloaderEnabled", "Value": "1", "Type": "bool"},
+    {"Id": "7", "Parameter": "IsStartupHomeLocation", "Value": "0", "Type": "bool"},
+    {"Id": "8", "Parameter": "SwfVersion", "Value": "", "Type": "string"},
+    {"Id": "9", "Parameter": "SynchronizeAvatarRotation", "Value": "1", "Type": "bool"},
+    {"Id": "10", "Parameter": "StatisticsSendInterval", "Value": "0", "Type": "number"},
+    {"Id": "12", "Parameter": "LanguageId", "Value": "1", "Type": "number"},
+    {"Id": "13", "Parameter": "SnId", "Value": "1", "Type": "number"},
+    {"Id": "14", "Parameter": "IsInternational", "Value": "0", "Type": "bool"},
+    {"Id": "15", "Parameter": "AutoServerSelectionAllowed", "Value": "1", "Type": "bool"},
+    {"Id": "16", "Parameter": "DaysToFullSoil", "Value": "28", "Type": "number"},
+    {"Id": "17", "Parameter": "DaysToHalfSoil", "Value": "14", "Type": "number"},
+    {"Id": "18", "Parameter": "CurrentQuest", "Value": "467", "Type": "number"},
+    {"Id": "20", "Parameter": "TypeWeapon", "Value": "0", "Type": "number"},
+    {"Id": "21", "Parameter": "SkipTutorial", "Value": "1", "Type": "bool"},
+    {"Id": "23", "Parameter": "CurrentQuestGroup", "Value": "1000", "Type": "string"},
+    {"Id": "24", "Parameter": "IsNewRegistration", "Value": "1", "Type": "bool"},
+    {"Id": "25", "Parameter": "IsMotivatingAdsOn", "Value": "1", "Type": "bool"},
+    {"Id": "26", "Parameter": "VersionMode", "Value": "2", "Type": "number"}
+]

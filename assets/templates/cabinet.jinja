@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Личный кабинет - FastDale</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+    <h1>Кабинет</h1>
+    <div class="message"></div>
+    <form enctype='multipart/form-data'>
+        <p>Уровень: <input name="level" minlength="1" maxlength="5" value="{{ level }}" /></p>
+        <p>Дата регистрации: <input name="regday" required maxlength="2" value="{{ regday }}" />.<input name="regmonth" required maxlength="2"  value="{{ regmonth }}" />.<input name="regyear" required minlength="4" maxlength="4" value="{{ regyear }}" /></p>
+        <button type="submit">Отправить</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/cabinet.js"></script>
+</body>
+
+</html>
