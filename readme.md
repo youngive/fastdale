@@ -2,7 +2,7 @@
 
 ![FastDale Logo](assets/static/favicon-32x32.png)
 
-**FastDale** - это порт на FastAPI open-source сервера DD++ для аватар-чата, частично совместимого с клиентом игры «Шарарам»
+**FastDale** - это порт на FastAPI open-source веб-сервера DD++ для аватар-чата, частично совместимого с клиентом игры «Шарарам»
 
 # Плюсы FastDale
 Из плюсов можно выделить:
@@ -22,7 +22,7 @@
 
 3. [FastDale](https://github.com/youngive/fastdale/releases)
 
-4. Патч клиента Шарарама (`base.swf`)
+4. Патч клиента Шарарама `base.swf`
 
 5. [MariaDB](https://mariadb.org/download/) или [MySQL](https://dev.mysql.com/downloads/mysql/) (для хранения аккаунтов)
 
@@ -30,7 +30,7 @@
 
 # Установка (Windows)
 
-1. Первым делом необходимо перенести папку `daisy` из репозитория в папку `applications` в корне Adobe Media Server.
+1. Первым делом необходимо перенести папку [daisy](https://github.com/123jjck/ddplusplus/tree/master/daisy) из репозитория DD++ в папку `applications` в корне Adobe Media Server.
 2. В HeidiSQL создаём базу данных под названием `daisy` с кодировкой `utf8mb4_general_ci` и импортируем туда [dump.sql](https://raw.githubusercontent.com/123jjck/ddplusplus/master/dump.sql)
 3. Запускаем Adobe Media Server и Adobe Media Administration Server
 4. Клонируем / распаковываем репозиторий в удобное для вас место
@@ -41,8 +41,8 @@
 9. Теперь вы можете зайти на `localhost` и наслаждаться игрой
 
 # Дополнительные шаги для запуска сервера на VDS/VPS
-7. Если на вашей базе данных стоит пароль, либо она расположена на удалённом сервере - меняем данные от базы данных в файле `.env`
-8. Укажите в «батнике» `start.bat` флаг `--host 0.0.0.0` для открытия доступа извне
+10. Если на вашей базе данных стоит пароль, либо она расположена на удалённом сервере - меняем данные от базы данных в файле `.env`
+11. Укажите в «батнике» `start.bat` флаг `--host 0.0.0.0` для открытия доступа извне
 
 # Лицензия
 
