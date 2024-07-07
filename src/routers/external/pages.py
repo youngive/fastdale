@@ -22,7 +22,7 @@ templates = Jinja2Templates(directory="assets/templates")
 async def root(request: Request):
     if request.session.get("userId", None) is not None:
         return RedirectResponse(url="/game", status_code=303)
-    return templates.TemplateResponse("index.jinja", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @router.post("/", response_class=HTMLResponse)
@@ -33,7 +33,7 @@ async def root(request: Request, form: UserBase = Depends(UserBase.as_form), db:
         user, error = authenticate_user(db, user_data.USERNAME, user_data.PASSWORD, ticket)
         if user is None and error is not None:
             return templates.TemplateResponse(
-                request=request, name="index.jinja", context={"error": error}
+                request=request, name="index.html", context={"error": error}
             )
         if user is not None and error is None:
             request.session["userId"] = user.ID
@@ -50,14 +50,14 @@ async def root(request: Request, form: UserBase = Depends(UserBase.as_form), db:
             error = "Недопустимые символы в логине или пароле"
         else:
             error = type
-        return templates.TemplateResponse("index.jinja", {"request": request, "error": error})
+        return templates.TemplateResponse("index.html", {"request": request, "error": error})
 
 
 @router.get("/register", response_class=HTMLResponse)
 async def route_register(request: Request):
     if request.session.get("userId", None) is not None:
         return RedirectResponse(url="/game", status_code=303)
-    return templates.TemplateResponse("register.jinja", {"request": request})
+    return templates.TemplateResponse("register.html", {"request": request})
 
 
 @router.post("/register", response_class=HTMLResponse)
@@ -68,7 +68,7 @@ async def route_register(request: Request, form: UserBase = Depends(UserBase.as_
         userId, error = register_user(db, user_data.USERNAME, user_data.PASSWORD, ticket)
         if userId is None and error is not None:
             return templates.TemplateResponse(
-                request=request, name="register.jinja", context={"error": error}
+                request=request, name="register.html", context={"error": error}
             )
         if userId is not None and error is None:
             request.session["userId"] = userId
@@ -85,14 +85,14 @@ async def route_register(request: Request, form: UserBase = Depends(UserBase.as_
             error = "Недопустимые символы в логине или пароле"
         else:
             error = type
-        return templates.TemplateResponse("register.jinja", {"request": request, "error": error})
+        return templates.TemplateResponse("register.html", {"request": request, "error": error})
 
 
 @router.get("/game", response_class=HTMLResponse)
 async def route_game(request: Request):
     if request.session.get("userId", None) is None:
         return RedirectResponse(url="/")
-    return templates.TemplateResponse("game.jinja",
+    return templates.TemplateResponse("game.html",
                                       {"request": request, "webhost": cfg.webhost, "webport": cfg.webport})
 
 
@@ -101,7 +101,7 @@ async def route_game(request: Request, db: Session = Depends(get_db)):
     if request.session.get("userId", None) is None:
         return RedirectResponse(url="/")
     json = get_cabinet_json(db, request)
-    return templates.TemplateResponse("cabinet.jinja", json)
+    return templates.TemplateResponse("cabinet.html", json)
 
 
 @router.get("/logout", response_class=HTMLResponse)

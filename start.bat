@@ -1,15 +1,25 @@
 @echo off
+chcp 65001 > nul
 
-REM Проверка наличия Python
-CALL python --version 2>nul
-IF %ERRORLEVEL% NEQ 0 (
-    echo Python не найден. Пожалуйста, загрузите его с сайта https://www.python.org/downloads/ и установите для работы FastDale.
-    pause
-    exit /b
-)
 
 REM Активация виртуального окружения
-CALL venv\Scripts\activate
+echo Активация виртуального окружения...
+call venv\Scripts\activate
+if %errorlevel% neq 0 (
+    echo Не удалось активировать виртуальное окружение. Убедитесь, что путь к 'venv\Scripts\activate' правильный.
+    pause
+    exit /b 1
+)
+echo Виртуальное окружение активировано.
 
 REM Запуск FastAPI сервера через uvicorn
+echo Запуск FastAPI сервера через uvicorn...
 CALL uvicorn main:app --reload --port 80
+if %errorlevel% neq 0 (
+    echo Не удалось запустить сервер FastAPI. Проверьте логи для получения дополнительной информации.
+    pause
+    exit /b 1
+)
+echo Сервер остановлен!
+
+pause

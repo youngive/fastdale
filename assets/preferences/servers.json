@@ -3,7 +3,7 @@
         "Id": "1",
         "TRId": "1",
         "RId": "5",
-        "RTMPUrl": "rtmp://localhost:1935/daisy",
+        "RTMPUrl": "rtmp://localhost:1936/daisy",
         "Load": "0",
         "QuestLocationLoad": "0",
         "FriendsCount": "1",
