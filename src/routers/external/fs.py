@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import requests
@@ -29,6 +30,10 @@ async def download_file(filename: str):
         else:
             error = type
         raise HTTPException(status_code=400, detail=error)
+
+    local_path = Path("assets/static/fs") / filename
+    if not local_path.parent.exists():
+        os.makedirs(local_path.parent)  # Создаем все промежуточные директории, если их нет
 
     local_path = Path("assets/static/fs") / filename
     if not local_path.exists():

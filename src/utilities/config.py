@@ -7,6 +7,7 @@ dbhost = os.environ.get("dbhost")
 dbuser = os.environ.get("dbuser")
 dbpassword = os.environ.get("dbpassword")
 dbname = os.environ.get("dbname")
+dbms = os.environ.get("dbms")
 
 secretkey = os.environ.get("secretkey")
 

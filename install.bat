@@ -1,5 +1,5 @@
 @echo off
-chcp 65001 > nul
+
 
 REM Проверка наличия Python
 echo Проверка наличия Python...
