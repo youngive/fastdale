@@ -92,6 +92,20 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+:: Получаем директорию, в которой находится скрипт
+set SCRIPT_DIR=%~dp0
+
+:: Определяем путь к папке alembic
+set ALEMBIC_DIR=%SCRIPT_DIR%alembic
+
+:: Проверяем и создаем директорию versions, если она не существует
+if not exist "%ALEMBIC_DIR%\versions" (
+    mkdir "%ALEMBIC_DIR%\versions"
+    echo Директория versions создана в /alembic
+) else (
+    echo Директория versions уже существует в /alembic
+)
+
 REM Создание первой ревизии
 echo Создание первой ревизии Alembic...
 call alembic revision --autogenerate -m "First commit"

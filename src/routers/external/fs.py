@@ -67,8 +67,8 @@ async def download_base():
     local_path = Path("assets/static") / "base.swf"
     if not local_path.exists():
         # Скачиваем файл из root, если локального файла не существует
-        remote_url = root.replace("/fs/", "/") + "base.swf"
-        print(remote_url)
+        #remote_url = root.replace("/fs/", "/") + "base.swf"
+        remote_url = 'https://web.archive.org/web/20190201092446oe_/http://sharaball.ru/base.swf?v20191116'
         try:
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Shararam/2.0.3 Chrome/80.0.3987.165 Electron/8.2.5 Safari/537.36"

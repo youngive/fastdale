@@ -79,6 +79,20 @@ if ! command -v alembic &> /dev/null; then
     exit 1
 fi
 
+# Получаем директорию, в которой находится скрипт
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+
+# Определяем путь к папке alembic
+ALEMBIC_DIR="$SCRIPT_DIR/alembic"
+
+# Проверяем и создаем директорию versions, если она не существует
+if [ ! -d "$ALEMBIC_DIR/versions" ]; then
+    mkdir -p "$ALEMBIC_DIR/versions"
+    echo "директория versions создана в /alembic"
+else
+    echo "Директория versions уже существует в /alembic"
+fi
+
 # Создание первой ревизии Alembic
 echo "Создание первой ревизии Alembic..."
 if ! alembic revision --autogenerate -m "First commit"; then

@@ -20,9 +20,9 @@
 
 2. ЯП [Python 3.x](https://www.python.org/downloads/)
 
-3. Веб-сервер [FastDale](https://github.com/youngive/fastdale/releases)
+3. Веб-сервер [FastDale](https://github.com/youngive/fastdale/archive/refs/heads/master.zip)
 
-4. Пропатченный [base.swf](https://web.archive.org/web/20190307085717oe_/http://sharaball.ru/base.swf?v20192621)
+4. Пропатченный [новый](https://shararam.ru/base.swf) / оригинальный [старый](https://web.archive.org/web/20190201092446oe_/http://sharaball.ru/base.swf?v20191116) `base.swf`
 
 5. СУБД [MariaDB](https://mariadb.org/download/) или [MySQL](https://dev.mysql.com/downloads/mysql/) (для хранения аккаунтов)
 
