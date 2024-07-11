@@ -31,11 +31,11 @@ async def download_file(filename: str):
             error = type
         raise HTTPException(status_code=400, detail=error)
 
-    local_path = Path("assets/static/fs") / filename
+    cleaned_filename = filename.rsplit('!', 1)[0] + '.swf'
+    local_path = Path("assets/static/fs") / cleaned_filename
     if not local_path.parent.exists():
         os.makedirs(local_path.parent)  # Создаем все промежуточные директории, если их нет
 
-    local_path = Path("assets/static/fs") / filename
     if not local_path.exists():
         # Скачиваем файл из root, если локального файла не существует
         remote_url = root + filename
@@ -67,7 +67,7 @@ async def download_base():
     local_path = Path("assets/static") / "base.swf"
     if not local_path.exists():
         # Скачиваем файл из root, если локального файла не существует
-        #remote_url = root.replace("/fs/", "/") + "base.swf"
+        # remote_url = root.replace("/fs/", "/") + "base.swf"
         remote_url = 'https://web.archive.org/web/20190201092446oe_/http://sharaball.ru/base.swf?v20191116'
         try:
             headers = {

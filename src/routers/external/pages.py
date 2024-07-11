@@ -6,6 +6,7 @@ from starlette.templating import Jinja2Templates
 
 from src.controllers.users import authenticate_user, register_user, get_cabinet_json
 from src.models.database import get_db
+from src.models.user import User
 from src.schemes.user import UserBase
 from src.utilities.generate import generate_ticket
 import src.utilities.config as cfg
@@ -89,9 +90,18 @@ async def route_register(request: Request, form: UserBase = Depends(UserBase.as_
 
 
 @router.get("/game", response_class=HTMLResponse)
-async def route_game(request: Request):
+async def route_game(request: Request, db: Session = Depends(get_db)):
     if request.session.get("userId", None) is None:
         return RedirectResponse(url="/")
+
+    user_id = request.session.get("userId")
+    user = db.query(User).filter(User.ID == user_id).first() if user_id else None
+
+    # Проверяем соответствие тикета пользователя
+    if user and request.session.get("ticket") != user.TICKET:
+        # Если тикеты не совпадают, деавторизуем пользователя
+        return RedirectResponse(url="/logout")
+
     return templates.TemplateResponse("game.html",
                                       {"request": request, "webhost": cfg.webhost, "webport": cfg.webport})
 
@@ -100,6 +110,15 @@ async def route_game(request: Request):
 async def route_game(request: Request, db: Session = Depends(get_db)):
     if request.session.get("userId", None) is None:
         return RedirectResponse(url="/")
+
+    user_id = request.session.get("userId")
+    user = db.query(User).filter(User.ID == user_id).first() if user_id else None
+
+    # Проверяем соответствие тикета пользователя
+    if user and request.session.get("ticket") != user.TICKET:
+        # Если тикеты не совпадают, деавторизуем пользователя
+        return RedirectResponse(url="/logout")
+
     json = get_cabinet_json(db, request)
     return templates.TemplateResponse("cabinet.html", json)
 
