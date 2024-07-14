@@ -1,5 +1,5 @@
 from fastapi import Form
-from pydantic import BaseModel
+from pydantic import BaseModel, conint, Field
 
 
 class BaseRequest(BaseModel):
@@ -125,7 +125,7 @@ class AvaRequest(BaseRequest):
 
 class LvlRequest(BaseModel):
     id: int
-    level: str
+    level: str = Field(..., max_length=5)
 
     @classmethod
     def as_form(
@@ -137,10 +137,10 @@ class LvlRequest(BaseModel):
 
 
 class CabinetRequest(BaseModel):
-    level: str
-    regday: int
-    regmonth: int
-    regyear: int
+    level: str = Field(..., max_length=5)
+    regday: conint(ge=1, le=31)
+    regmonth: conint(ge=1, le=12)
+    regyear: conint(ge=1000, le=2100)
 
     @classmethod
     def as_form(
